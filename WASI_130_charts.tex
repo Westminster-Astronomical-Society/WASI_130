@@ -1,0 +1,2493 @@
+% Gemini theme
+% https://github.com/anishathalye/gemini
+\documentclass[final]{beamer}
+
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[size=custom,width=27.95,height=21.59,scale=.3]{beamerposter}
+\usetheme{gemini}
+\usecolortheme{mit}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage{tikz}
+\usepackage{pgfplots}
+  \pgfplotsset{compat=1.14}
+
+% ====================
+% Lengths 
+% ====================
+
+% If you have N columns, choose \sepwidth and \colwidth such that
+% (N+1)*\sepwidth + N*\colwidth = \paperwidth
+\newlength{\sepwidth}
+\newlength{\colwidth}
+\setlength{\sepwidth}{0.025\paperwidth}
+\setlength{\colwidth}{0.3\paperwidth}
+
+\newcommand{\separatorcolumn}{\begin{column}{\sepwidth}\end{column}}
+
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+
+% Title
+% --------------------
+\title{WASI 130}
+% \author{Alyssa P. Hacker \inst{1} \and Ben Bitdiddle \inst{2}}
+% \institute[shortinst]{\inst{1} Some Institute \samelineand \inst{2} Another Institute}
+
+% Footer (can be left out to remove footer)
+% --------------------
+\footercontent{
+  \href{https://www.westminsterastro.org}{https://www.westminsterastro.org} \hfill
+  300 John Owings Rd. Westminster, MD 21158 \hfill
+  \href{mailto:chris@east20thst.net}{chris@east20thst.net}}
+
+% Logo (optional)
+% --------------------
+\logoleft{\includegraphics[height=1.0cm]{wasi-splash.pdf}}
+% \logoright{\includegraphics[height=1.0cm]{logo.pdf}}
+
+% Body
+% --------------------
+\begin{document}
+
+% Winter Constellations
+% -----------------------------------------------------------------------------
+\begin{frame}[t]{}
+  \begin{columns}[T]
+      \begin{column}{1.0\colwidth}
+      \Large
+      \begin{block}{Winter Constellations}
+      \begin{itemize}
+          \item{Auriga}
+          \item{Camelopardalis}
+          \item{Eridanus}
+          \item{Fornax}
+          \item{Gemini}
+          \item{Monoceros}
+          \item{Orion}
+          \item{Puppis}
+          \item{Taurus}
+      \end{itemize}
+      \end{block}
+  \end{column}
+      \begin{column}{2.0\colwidth}
+          \centering
+          \includegraphics[width=\textwidth]{figures/constellations/winter_hexagon.pdf}
+      \end{column}
+  \end{columns}
+\end{frame}
+
+% -----------------------------------------------------------------------------
+
+\begin{frame}[t]{}
+
+  \Large{Auriga}
+  \begin{columns}[T]
+      \begin{column}{1.7\colwidth}
+          \centering
+          \includegraphics[width=\textwidth]{figures/altitude/Aur_observability.pdf}
+      \end{column}
+      \begin{column}{1.3\colwidth}
+      \Large
+      \include{catalog/Aur_ngc_objects.tex}
+      \end{column}
+  \end{columns}
+
+  \Large{Camelopardalis}
+  \begin{columns}[T]
+      \begin{column}{1.7\colwidth}
+          \centering
+          \includegraphics[width=\textwidth]{figures/altitude/Cam_observability.pdf}
+      \end{column}
+      \begin{column}{1.3\colwidth}
+      \Large
+      \include{catalog/Cam_ngc_objects.tex}
+      \end{column}
+  \end{columns}
+
+  \Large{Eridanus}
+  \begin{columns}[T]
+      \begin{column}{1.7\colwidth}
+          \centering
+          \includegraphics[width=\textwidth]{figures/altitude/Eri_observability.pdf}
+      \end{column}
+      \begin{column}{1.3\colwidth}
+      \Large
+      \include{catalog/Eri_ngc_objects.tex}
+      \end{column}
+  \end{columns}
+\end{frame}
+
+% -----------------------------------------------------------------------------
+
+\begin{frame}[t]{}
+
+  \Large{Fornax}
+  \begin{columns}[T]
+      \begin{column}{1.7\colwidth}
+          \centering
+          \includegraphics[width=\textwidth]{figures/altitude/For_observability.pdf}
+      \end{column}
+      \begin{column}{1.3\colwidth}
+      \Large
+      \include{catalog/For_ngc_objects.tex}
+      \end{column}
+  \end{columns}
+
+  \Large{Gemini}
+  \begin{columns}[T]
+      \begin{column}{1.7\colwidth}
+          \centering
+          \includegraphics[width=\textwidth]{figures/altitude/Gem_observability.pdf}
+      \end{column}
+      \begin{column}{1.3\colwidth}
+      \Large
+      \include{catalog/Gem_ngc_objects.tex}
+      \end{column}
+  \end{columns}
+
+  \Large{Monoceros}
+  \begin{columns}[T]
+      \begin{column}{1.7\colwidth}
+          \centering
+          \includegraphics[width=\textwidth]{figures/altitude/Mon_observability.pdf}
+      \end{column}
+      \begin{column}{1.3\colwidth}
+      \Large
+      \include{catalog/Mon_ngc_objects.tex}
+      \end{column}
+  \end{columns}
+\end{frame}
+
+% -----------------------------------------------------------------------------
+
+\begin{frame}[t]{}
+
+  \Large{Orion}
+  \begin{columns}[T]
+      \begin{column}{1.7\colwidth}
+          \centering
+          \includegraphics[width=\textwidth]{figures/altitude/Ori_observability.pdf}
+      \end{column}
+      \begin{column}{1.3\colwidth}
+      \Large
+      \include{catalog/Ori_ngc_objects.tex}
+      \end{column}
+  \end{columns}
+
+  \Large{Puppis}
+  \begin{columns}[T]
+      \begin{column}{1.7\colwidth}
+          \centering
+          \includegraphics[width=\textwidth]{figures/altitude/Pup_observability.pdf}
+      \end{column}
+      \begin{column}{1.3\colwidth}
+          \Large
+          \include{catalog/Pup_ngc_objects.tex}
+      \end{column}
+  \end{columns}
+
+  \Large{Taurus}
+  \begin{columns}[T]
+      \begin{column}{1.7\colwidth}
+          \centering
+          \includegraphics[width=\textwidth]{figures/altitude/Tau_observability.pdf}
+      \end{column}
+      \begin{column}{1.3\colwidth}
+          \Large
+          \include{catalog/Tau_ngc_objects.tex}
+      \end{column}
+  \end{columns}
+\end{frame}
+
+% -----------------------------------------------------------------------------
+
+\begin{frame}[t]{\LARGE Auriga}
+    \centering
+    \includegraphics[height=0.95\textheight]{figures/constellations/Auriga.pdf}
+\end{frame}
+
+% -----------------------------------------------------------------------------
+
+\begin{frame}[t]{}
+    \begin{columns}[T]
+        \begin{column}{1.5\colwidth}
+            \centering
+            \includegraphics[width=0.75\textwidth]{figures/finder/NGC1912_DSS2_B.pdf}
+        \end{column}
+        \begin{column}{1.5\colwidth}
+            \Large
+            \include{description/NGC1912_description.tex}
+        \end{column}
+    \end{columns}
+    \vspace{\fill}
+    \begin{columns}[T]
+        \begin{column}{1.5\colwidth}
+            \centering
+            \includegraphics[width=0.75\textwidth]{figures/finder/NGC2099_DSS1_B.pdf}
+        \end{column}
+        \begin{column}{1.5\colwidth}
+            \Large
+            \include{description/NGC2099_description.tex}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+% -----------------------------------------------------------------------------
+
+\begin{frame}[t]{\LARGE Camelopardalis}
+    \centering
+    \includegraphics[height=0.95\textheight]{figures/constellations/Camelopardalis.pdf}
+\end{frame}
+
+% -----------------------------------------------------------------------------
+
+\begin{frame}[t]{}
+    \begin{columns}[T]
+        \begin{column}{1.5\colwidth}
+            \centering
+            \includegraphics[width=0.75\textwidth]{figures/finder/NGC2403_DSS2_B.pdf}
+        \end{column}
+        \begin{column}{1.5\colwidth}
+            \Large
+            \include{description/NGC2403_description.tex}
+        \end{column}
+    \end{columns}
+    \vspace{\fill}
+\end{frame}
+
+% -----------------------------------------------------------------------------
+
+\begin{frame}[t]{\LARGE Eridanus}
+    \centering
+    \includegraphics[height=0.95\textheight]{figures/constellations/Eridanus.pdf}
+\end{frame}
+
+% -----------------------------------------------------------------------------
+
+\begin{frame}[t]{}
+    \begin{columns}[T]
+        \begin{column}{1.5\colwidth}
+            \centering
+            \includegraphics[width=0.75\textwidth]{figures/finder/NGC1535_DSS2_B.pdf}
+        \end{column}
+        \begin{column}{1.5\colwidth}
+            \Large
+            \include{description/NGC1535_description.tex}
+        \end{column}
+    \end{columns}
+    \vspace{\fill}
+\end{frame}
+
+% -----------------------------------------------------------------------------
+
+\begin{frame}[t]{\LARGE Fornax}
+    \centering
+    \includegraphics[height=0.95\textheight]{figures/constellations/Fornax.pdf}
+\end{frame}
+
+% -----------------------------------------------------------------------------
+
+\begin{frame}[t]{}
+    \begin{columns}[T]
+        \begin{column}{1.5\colwidth}
+            \centering
+            \includegraphics[width=0.75\textwidth]{figures/finder/NGC1097_DSS2_B.pdf}
+        \end{column}
+        \begin{column}{1.5\colwidth}
+            \Large
+            \include{description/NGC1097_description.tex}
+        \end{column}
+    \end{columns}
+    \vspace{\fill}
+    \begin{columns}[T]
+        \begin{column}{1.5\colwidth}
+            \centering
+            \includegraphics[width=0.75\textwidth]{figures/finder/NGC1398_DSS2_B.pdf}
+        \end{column}
+        \begin{column}{1.5\colwidth}
+            \Large
+            \include{description/NGC1398_description.tex}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+% -----------------------------------------------------------------------------
+
+\begin{frame}[t]{}
+    \begin{columns}[T]
+        \begin{column}{1.5\colwidth}
+            \centering
+            \includegraphics[width=0.75\textwidth]{figures/finder/NGC1399_DSS2_B.pdf}
+        \end{column}
+        \begin{column}{1.5\colwidth}
+            \Large
+            \include{description/NGC1399_description.tex}
+        \end{column}
+    \end{columns}
+    \vspace{\fill}
+\end{frame}
+
+% -----------------------------------------------------------------------------
+
+\begin{frame}[t]{\LARGE Gemini}
+    \centering
+    \includegraphics[height=0.95\textheight]{figures/constellations/Gemini.pdf}
+\end{frame}
+
+% -----------------------------------------------------------------------------
+
+\begin{frame}[t]{}
+    \begin{columns}[T]
+        \begin{column}{1.5\colwidth}
+            \centering
+            \includegraphics[width=0.75\textwidth]{figures/finder/NGC2168_DSS2_B.pdf}
+        \end{column}
+        \begin{column}{1.5\colwidth}
+            \Large
+            \include{description/NGC2168_description.tex}
+        \end{column}
+    \end{columns}
+    \vspace{\fill}
+    \begin{columns}[T]
+        \begin{column}{1.5\colwidth}
+            \centering
+            \includegraphics[width=0.75\textwidth]{figures/finder/NGC2371_DSS2_B.pdf}
+        \end{column}
+        \begin{column}{1.5\colwidth}
+            \Large
+            \include{description/NGC2371_description.tex}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+% -----------------------------------------------------------------------------
+
+\begin{frame}[t]{}
+    \begin{columns}[T]
+        \begin{column}{1.5\colwidth}
+            \centering
+            \includegraphics[width=0.75\textwidth]{figures/finder/NGC2392_DSS2_B.pdf}
+        \end{column}
+        \begin{column}{1.5\colwidth}
+            \Large
+            \include{description/NGC2392_description.tex}
+        \end{column}
+    \end{columns}
+    \vspace{\fill}
+\end{frame}
+
+% -----------------------------------------------------------------------------
+
+\begin{frame}[t]{\LARGE Monoceros}
+    \centering
+    \includegraphics[height=0.95\textheight]{figures/constellations/Monoceros.pdf}
+\end{frame}
+
+% -----------------------------------------------------------------------------
+
+\begin{frame}[t]{}
+    \begin{columns}[T]
+        \begin{column}{1.5\colwidth}
+            \centering
+            \includegraphics[width=0.75\textwidth]{figures/finder/NGC2237_DSS2_B.pdf}
+        \end{column}
+        \begin{column}{1.5\colwidth}
+            \Large
+            \include{description/NGC2237_description.tex}
+        \end{column}
+    \end{columns}
+    \vspace{\fill}
+    \begin{columns}[T]
+        \begin{column}{1.5\colwidth}
+            \centering
+            \includegraphics[width=0.75\textwidth]{figures/finder/NGC2239_DSS2_B.pdf}
+        \end{column}
+        \begin{column}{1.5\colwidth}
+            \Large
+            \include{description/NGC2239_description.tex}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+% -----------------------------------------------------------------------------
+
+\begin{frame}[t]{\LARGE Orion}
+    \centering
+    \includegraphics[height=0.95\textheight]{figures/constellations/Orion.pdf}
+\end{frame}
+
+% -----------------------------------------------------------------------------
+
+\begin{frame}[t]{}
+    \begin{columns}[T]
+        \begin{column}{1.5\colwidth}
+            \centering
+            \includegraphics[width=0.75\textwidth]{figures/finder/NGC1976_DSS2_B.pdf}
+        \end{column}
+        \begin{column}{1.5\colwidth}
+            \Large
+            \include{description/NGC1976_description.tex}
+        \end{column}
+    \end{columns}
+    \vspace{\fill}
+    \begin{columns}[T]
+        \begin{column}{1.5\colwidth}
+            \centering
+            \includegraphics[width=0.75\textwidth]{figures/finder/NGC1982_DSS2_B.pdf}
+        \end{column}
+        \begin{column}{1.5\colwidth}
+            \Large
+            \include{description/NGC1982_description.tex}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+% -----------------------------------------------------------------------------
+
+\begin{frame}[t]{}
+    \begin{columns}[T]
+        \begin{column}{1.5\colwidth}
+            \centering
+            \includegraphics[width=0.75\textwidth]{figures/finder/NGC1999_DSS2_B.pdf}
+        \end{column}
+        \begin{column}{1.5\colwidth}
+            \Large
+            \include{description/NGC1999_description.tex}
+        \end{column}
+    \end{columns}
+    \vspace{\fill}
+    \begin{columns}[T]
+        \begin{column}{1.5\colwidth}
+            \centering
+            \includegraphics[width=0.75\textwidth]{figures/finder/NGC2022_DSS2_B.pdf}
+        \end{column}
+        \begin{column}{1.5\colwidth}
+            \Large
+            \include{description/NGC2022_description.tex}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+% -----------------------------------------------------------------------------
+
+\begin{frame}[t]{}
+    \begin{columns}[T]
+        \begin{column}{1.5\colwidth}
+            \centering
+            \includegraphics[width=0.75\textwidth]{figures/finder/NGC2024_DSS2_B.pdf}
+        \end{column}
+        \begin{column}{1.5\colwidth}
+            \Large
+            \include{description/NGC2024_description.tex}
+        \end{column}
+    \end{columns}
+    \vspace{\fill}
+\end{frame}
+
+% -----------------------------------------------------------------------------
+
+\begin{frame}[t]{\LARGE Puppis}
+    \centering
+    \includegraphics[height=0.95\textheight]{figures/constellations/Puppis.pdf}
+\end{frame}
+
+% -----------------------------------------------------------------------------
+
+\begin{frame}[t]{}
+    \begin{columns}[T]
+        \begin{column}{1.5\colwidth}
+            \centering
+            \includegraphics[width=0.75\textwidth]{figures/finder/NGC2422_DSS2_B.pdf}
+        \end{column}
+        \begin{column}{1.5\colwidth}
+            \Large
+            \include{description/NGC2422_description.tex}
+        \end{column}
+    \end{columns}
+    \vspace{\fill}
+    \begin{columns}[T]
+        \begin{column}{1.5\colwidth}
+            \centering
+            \includegraphics[width=0.75\textwidth]{figures/finder/NGC2437_DSS2_B.pdf}
+        \end{column}
+        \begin{column}{1.5\colwidth}
+            \Large
+            \include{description/NGC2437_description.tex}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+% -----------------------------------------------------------------------------
+
+\begin{frame}[t]{}
+    \begin{columns}[T]
+        \begin{column}{1.5\colwidth}
+            \centering
+            \includegraphics[width=0.75\textwidth]{figures/finder/NGC2571_DSS2_B.pdf}
+        \end{column}
+        \begin{column}{1.5\colwidth}
+            \Large
+            \include{description/NGC2571_description.tex}
+        \end{column}
+    \end{columns}
+    \vspace{\fill}
+    \begin{columns}[T]
+        \begin{column}{1.5\colwidth}
+            \centering
+            \includegraphics[width=0.75\textwidth]{figures/finder/NGC2438_DSS2_B.pdf}
+        \end{column}
+        \begin{column}{1.5\colwidth}
+            \Large
+            \include{description/NGC2438_description.tex}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+% -----------------------------------------------------------------------------
+
+\begin{frame}[t]{\LARGE Taurus}
+    \centering
+    \includegraphics[height=0.95\textheight]{figures/constellations/Taurus.pdf}
+\end{frame}
+
+% -----------------------------------------------------------------------------
+
+\begin{frame}[t]{}
+    \begin{columns}[T]
+        \begin{column}{1.5\colwidth}
+            \centering
+            \includegraphics[width=0.75\textwidth]{figures/finder/NGC1514_DSS2_B.pdf}
+        \end{column}
+        \begin{column}{1.5\colwidth}
+            \Large
+            \include{description/NGC1514_description.tex}
+        \end{column}
+    \end{columns}
+    \vspace{\fill}
+    \begin{columns}[T]
+        \begin{column}{1.5\colwidth}
+            \centering
+            \includegraphics[width=0.75\textwidth]{figures/finder/NGC1647_DSS2_B.pdf}
+        \end{column}
+        \begin{column}{1.5\colwidth}
+            \Large
+            \include{description/NGC1647_description.tex}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+% -----------------------------------------------------------------------------
+
+\begin{frame}[t]{}
+    \begin{columns}[T]
+        \begin{column}{1.5\colwidth}
+            \centering
+            \includegraphics[width=0.75\textwidth]{figures/finder/NGC1952_DSS2_B.pdf}
+        \end{column}
+        \begin{column}{1.5\colwidth}
+            \Large
+            \include{description/NGC1952_description.tex}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+
+% Spring Constellations
+% -----------------------------------------------------------------------------
+\begin{frame}[t]{}
+    \begin{columns}[T]
+        \begin{column}{1.0\colwidth}
+            \Large
+            \begin{block}{Spring Constellations}
+                \begin{itemize}
+                    \item{Cancer}
+                    \item{Canes Venatici}
+                    \item{Coma Berenices}
+                    \item{Hydra}
+                    \item{Leo}
+                    \item{Lynx}
+                    \item{Ursa Major}
+                    \item{Vela}
+                    \item{Virgo}
+                \end{itemize}
+            \end{block}
+        \end{column}
+        \begin{column}{2.0\colwidth}
+            \centering
+            \includegraphics[width=\textwidth]{figures/constellations/spring_triangle.pdf}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+% -----------------------------------------------------------------------------
+
+\begin{frame}[t]{}
+
+    \Large{Cancer}
+    \begin{columns}[T]
+        \begin{column}{1.7\colwidth}
+            \centering
+            \includegraphics[width=\textwidth]{figures/altitude/Cnc_observability.pdf}
+        \end{column}
+        \begin{column}{1.3\colwidth}
+            \Large
+            \include{catalog/Cnc_ngc_objects.tex}
+        \end{column}
+    \end{columns}
+
+    \Large{Canes Venatici}
+    \begin{columns}[T]
+        \begin{column}{1.7\colwidth}
+            \centering
+            \includegraphics[width=\textwidth]{figures/altitude/CVn_observability.pdf}
+        \end{column}
+        \begin{column}{1.3\colwidth}
+            \Large
+            \include{catalog/CVn_ngc_objects.tex}
+        \end{column}
+    \end{columns}
+
+    \Large{Coma Berenices}
+    \begin{columns}[T]
+        \begin{column}{1.7\colwidth}
+            \centering
+            \includegraphics[width=\textwidth]{figures/altitude/Com_observability.pdf}
+        \end{column}
+        \begin{column}{1.3\colwidth}
+            \Large
+            \include{catalog/Com_ngc_objects.tex}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+% -----------------------------------------------------------------------------
+
+\begin{frame}[t]{}
+
+    \Large{Hydra}
+    \begin{columns}[T]
+        \begin{column}{1.7\colwidth}
+            \centering
+            \includegraphics[width=\textwidth]{figures/altitude/Hya_observability.pdf}
+        \end{column}
+        \begin{column}{1.3\colwidth}
+            \Large
+            \include{catalog/Hya_ngc_objects.tex}
+        \end{column}
+    \end{columns}
+
+    \Large{Leo}
+    \begin{columns}[T]
+        \begin{column}{1.7\colwidth}
+            \centering
+            \includegraphics[width=\textwidth]{figures/altitude/Leo_observability.pdf}
+        \end{column}
+        \begin{column}{1.3\colwidth}
+            \Large
+            \include{catalog/Leo_ngc_objects.tex}
+        \end{column}
+    \end{columns}
+
+    \Large{Lynx}
+    \begin{columns}[T]
+        \begin{column}{1.7\colwidth}
+            \centering
+            \includegraphics[width=\textwidth]{figures/altitude/Lyn_observability.pdf}
+        \end{column}
+        \begin{column}{1.3\colwidth}
+            \Large
+            \include{catalog/Lyn_ngc_objects.tex}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+% -----------------------------------------------------------------------------
+
+\begin{frame}[t]{}
+
+    \Large{Ursa Major}
+    \begin{columns}[T]
+        \begin{column}{1.7\colwidth}
+            \centering
+            \includegraphics[width=\textwidth]{figures/altitude/UMa_observability.pdf}
+        \end{column}
+        \begin{column}{1.3\colwidth}
+            \Large
+            \include{catalog/UMa_ngc_objects.tex}
+        \end{column}
+    \end{columns}
+
+    \Large{Vela}
+    \begin{columns}[T]
+        \begin{column}{1.7\colwidth}
+            \centering
+            \includegraphics[width=\textwidth]{figures/altitude/Vel_observability.pdf}
+        \end{column}
+        \begin{column}{1.3\colwidth}
+            \Large
+            \include{catalog/Vel_ngc_objects.tex}
+        \end{column}
+    \end{columns}
+
+    \Large{Virgo}
+    \begin{columns}[T]
+        \begin{column}{1.7\colwidth}
+            \centering
+            \includegraphics[width=\textwidth]{figures/altitude/Vir_observability.pdf}
+        \end{column}
+        \begin{column}{1.3\colwidth}
+            \Large
+            \include{catalog/Vir_ngc_objects.tex}
+        \end{column}
+    \end{columns}
+\end{frame}
+% -----------------------------------------------------------------------------
+
+\begin{frame}[t]{\LARGE Cancer}
+    \centering
+    \includegraphics[height=0.95\textheight]{figures/constellations/Cancer.pdf}
+\end{frame}
+
+% -----------------------------------------------------------------------------
+
+\begin{frame}[t]{}
+    \begin{columns}[T]
+        \begin{column}{1.5\colwidth}
+            \centering
+            \includegraphics[width=0.75\textwidth]{figures/finder/NGC2632_DSS2_B.pdf}
+        \end{column}
+        \begin{column}{1.5\colwidth}
+            \Large
+            \include{description/NGC2632_description.tex}
+        \end{column}
+    \end{columns}
+    \vspace{\fill}
+\end{frame}
+
+% -----------------------------------------------------------------------------
+
+\begin{frame}[t]{\LARGE Canes Venatici}
+    \centering
+    \includegraphics[height=0.95\textheight]{figures/constellations/Canes_Venatici.pdf}
+\end{frame}
+
+% -----------------------------------------------------------------------------
+
+\begin{frame}[t]{}
+    \begin{columns}[T]
+        \begin{column}{1.5\colwidth}
+            \centering
+            \includegraphics[width=0.75\textwidth]{figures/finder/NGC4258_DSS1_B.pdf}
+        \end{column}
+        \begin{column}{1.5\colwidth}
+            \Large
+            \include{description/NGC4258_description.tex}
+        \end{column}
+    \end{columns}
+    \vspace{\fill}
+    \begin{columns}[T]
+        \begin{column}{1.5\colwidth}
+            \centering
+            \includegraphics[width=0.75\textwidth]{figures/finder/NGC4490_DSS2_B.pdf}
+        \end{column}
+        \begin{column}{1.5\colwidth}
+            \Large
+            \include{description/NGC4490_description.tex}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+% -----------------------------------------------------------------------------
+
+\begin{frame}[t]{}
+    \begin{columns}[T]
+        \begin{column}{1.5\colwidth}
+            \centering
+            \includegraphics[width=0.75\textwidth]{figures/finder/NGC4631_DSS2_B.pdf}
+        \end{column}
+        \begin{column}{1.5\colwidth}
+            \Large
+            \include{description/NGC4631_description.tex}
+        \end{column}
+    \end{columns}
+    \vspace{\fill}
+    \begin{columns}[T]
+        \begin{column}{1.5\colwidth}
+            \centering
+            \includegraphics[width=0.75\textwidth]{figures/finder/NGC4736_DSS2_B.pdf}
+        \end{column}
+        \begin{column}{1.5\colwidth}
+            \Large
+            \include{description/NGC4736_description.tex}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+% -----------------------------------------------------------------------------
+
+\begin{frame}[t]{}
+    \begin{columns}[T]
+        \begin{column}{1.5\colwidth}
+            \centering
+            \includegraphics[width=0.75\textwidth]{figures/finder/NGC5005_DSS2_B.pdf}
+        \end{column}
+        \begin{column}{1.5\colwidth}
+            \Large
+            \include{description/NGC5005_description.tex}
+        \end{column}
+    \end{columns}
+    \vspace{\fill}
+    \begin{columns}[T]
+        \begin{column}{1.5\colwidth}
+            \centering
+            \includegraphics[width=0.75\textwidth]{figures/finder/NGC5194_DSS2_B.pdf}
+        \end{column}
+        \begin{column}{1.5\colwidth}
+            \Large
+            \include{description/NGC5194_description.tex}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+% -----------------------------------------------------------------------------
+
+\begin{frame}[t]{}
+    \begin{columns}[T]
+        \begin{column}{1.5\colwidth}
+            \centering
+            \includegraphics[width=0.75\textwidth]{figures/finder/NGC5195_DSS2_B.pdf}
+        \end{column}
+        \begin{column}{1.5\colwidth}
+            \Large
+            \include{description/NGC5195_description.tex}
+        \end{column}
+    \end{columns}
+    \vspace{\fill}
+    \begin{columns}[T]
+        \begin{column}{1.5\colwidth}
+            \centering
+            \includegraphics[width=0.75\textwidth]{figures/finder/NGC5272_DSS2_B.pdf}
+        \end{column}
+        \begin{column}{1.5\colwidth}
+            \Large
+            \include{description/NGC5272_description.tex}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+% -----------------------------------------------------------------------------
+
+\begin{frame}[t]{\LARGE Coma Berenices}
+    \centering
+    \includegraphics[height=0.95\textheight]{figures/constellations/Coma_Berenices.pdf}
+\end{frame}
+
+% -----------------------------------------------------------------------------
+
+\begin{frame}[t]{}
+    \begin{columns}[T]
+        \begin{column}{1.5\colwidth}
+            \centering
+            \includegraphics[width=0.75\textwidth]{figures/finder/NGC4565_DSS2_B.pdf}
+        \end{column}
+        \begin{column}{1.5\colwidth}
+            \Large
+            \include{description/NGC4565_description.tex}
+        \end{column}
+    \end{columns}
+    \vspace{\fill}
+    \begin{columns}[T]
+        \begin{column}{1.5\colwidth}
+            \centering
+            \includegraphics[width=0.75\textwidth]{figures/finder/NGC4826_DSS2_B.pdf}
+        \end{column}
+        \begin{column}{1.5\colwidth}
+            \Large
+            \include{description/NGC4826_description.tex}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+% -----------------------------------------------------------------------------
+
+\begin{frame}[t]{}
+    \begin{columns}[T]
+        \begin{column}{1.5\colwidth}
+            \centering
+            \includegraphics[width=0.75\textwidth]{figures/finder/NGC5024_DSS2_B.pdf}
+        \end{column}
+        \begin{column}{1.5\colwidth}
+            \Large
+            \include{description/NGC5024_description.tex}
+        \end{column}
+    \end{columns}
+    \vspace{\fill}
+\end{frame}
+
+% -----------------------------------------------------------------------------
+
+\begin{frame}[t]{\LARGE Hydra}
+    \centering
+    \includegraphics[height=0.95\textheight]{figures/constellations/Hydra.pdf}
+\end{frame}
+
+% -----------------------------------------------------------------------------
+
+\begin{frame}[t]{}
+    \begin{columns}[T]
+        \begin{column}{1.5\colwidth}
+            \centering
+            \includegraphics[width=0.75\textwidth]{figures/finder/NGC3242_DSS2_B.pdf}
+        \end{column}
+        \begin{column}{1.5\colwidth}
+            \Large
+            \include{description/NGC3242_description.tex}
+        \end{column}
+    \end{columns}
+    \vspace{\fill}
+\end{frame}
+
+% -----------------------------------------------------------------------------
+
+\begin{frame}[t]{\LARGE Leo}
+    \centering
+    \includegraphics[height=0.95\textheight]{figures/constellations/Leo.pdf}
+\end{frame}
+
+% -----------------------------------------------------------------------------
+
+\begin{frame}[t]{}
+    \begin{columns}[T]
+        \begin{column}{1.5\colwidth}
+            \centering
+            \includegraphics[width=0.75\textwidth]{figures/finder/NGC2903_DSS2_B.pdf}
+        \end{column}
+        \begin{column}{1.5\colwidth}
+            \Large
+            \include{description/NGC2903_description.tex}
+        \end{column}
+    \end{columns}
+    \vspace{\fill}
+    \begin{columns}[T]
+        \begin{column}{1.5\colwidth}
+            \centering
+            \includegraphics[width=0.75\textwidth]{figures/finder/NGC3351_DSS2_B.pdf}
+        \end{column}
+        \begin{column}{1.5\colwidth}
+            \Large
+            \include{description/NGC3351_description.tex}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+% -----------------------------------------------------------------------------
+
+\begin{frame}[t]{}
+    \begin{columns}[T]
+        \begin{column}{1.5\colwidth}
+            \centering
+            \includegraphics[width=0.75\textwidth]{figures/finder/NGC3623_DSS2_B.pdf}
+        \end{column}
+        \begin{column}{1.5\colwidth}
+            \Large
+            \include{description/NGC3623_description.tex}
+        \end{column}
+    \end{columns}
+    \vspace{\fill}
+    \begin{columns}[T]
+        \begin{column}{1.5\colwidth}
+            \centering
+            \includegraphics[width=0.75\textwidth]{figures/finder/NGC3627_DSS2_B.pdf}
+        \end{column}
+        \begin{column}{1.5\colwidth}
+            \Large
+            \include{description/NGC3627_description.tex}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+% -----------------------------------------------------------------------------
+
+\begin{frame}[t]{}
+    \begin{columns}[T]
+        \begin{column}{1.5\colwidth}
+            \centering
+            \includegraphics[width=0.75\textwidth]{figures/finder/NGC3628_DSS2_B.pdf}
+        \end{column}
+        \begin{column}{1.5\colwidth}
+            \Large
+            \include{description/NGC3628_description.tex}
+        \end{column}
+    \end{columns}
+    \vspace{\fill}
+\end{frame}
+
+% -----------------------------------------------------------------------------
+
+\begin{frame}[t]{\LARGE Lynx}
+    \centering
+    \includegraphics[height=0.95\textheight]{figures/constellations/Lynx.pdf}
+\end{frame}
+
+% -----------------------------------------------------------------------------
+
+\begin{frame}[t]{}
+    \begin{columns}[T]
+        \begin{column}{1.5\colwidth}
+            \centering
+            \includegraphics[width=0.75\textwidth]{figures/finder/NGC2683_DSS2_B.pdf}
+        \end{column}
+        \begin{column}{1.5\colwidth}
+            \Large
+            \include{description/NGC2683_description.tex}
+        \end{column}
+    \end{columns}
+    \vspace{\fill}
+\end{frame}
+
+% -----------------------------------------------------------------------------
+
+\begin{frame}[t]{\LARGE Ursa Major}
+    \centering
+    \includegraphics[height=0.95\textheight]{figures/constellations/Ursa_Major.pdf}
+\end{frame}
+
+% -----------------------------------------------------------------------------
+
+\begin{frame}[t]{}
+    \begin{columns}[T]
+        \begin{column}{1.5\colwidth}
+            \centering
+            \includegraphics[width=0.75\textwidth]{figures/finder/NGC2768_DSS2_B.pdf}
+        \end{column}
+        \begin{column}{1.5\colwidth}
+            \Large
+            \include{description/NGC2768_description.tex}
+        \end{column}
+    \end{columns}
+    \vspace{\fill}
+    \begin{columns}[T]
+        \begin{column}{1.5\colwidth}
+            \centering
+            \includegraphics[width=0.75\textwidth]{figures/finder/NGC3031_DSS2_B.pdf}
+        \end{column}
+        \begin{column}{1.5\colwidth}
+            \Large
+            \include{description/NGC3031_description.tex}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+% -----------------------------------------------------------------------------
+
+\begin{frame}[t]{}
+    \begin{columns}[T]
+        \begin{column}{1.5\colwidth}
+            \centering
+            \includegraphics[width=0.75\textwidth]{figures/finder/NGC3034_DSS2_B.pdf}
+        \end{column}
+        \begin{column}{1.5\colwidth}
+            \Large
+            \include{description/NGC3034_description.tex}
+        \end{column}
+    \end{columns}
+    \vspace{\fill}
+    \begin{columns}[T]
+        \begin{column}{1.5\colwidth}
+            \centering
+            \includegraphics[width=0.75\textwidth]{figures/finder/NGC3587_DSS2_B.pdf}
+        \end{column}
+        \begin{column}{1.5\colwidth}
+            \Large
+            \include{description/NGC3587_description.tex}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+% -----------------------------------------------------------------------------
+
+\begin{frame}[t]{}
+    \begin{columns}[T]
+        \begin{column}{1.5\colwidth}
+            \centering
+            \includegraphics[width=0.75\textwidth]{figures/finder/NGC5457_DSS2_B.pdf}
+        \end{column}
+        \begin{column}{1.5\colwidth}
+            \Large
+            \include{description/NGC5457_description.tex}
+        \end{column}
+    \end{columns}
+    \vspace{\fill}
+\end{frame}
+
+% -----------------------------------------------------------------------------
+
+\begin{frame}[t]{\LARGE Vela}
+    \centering
+    \includegraphics[height=0.95\textheight]{figures/constellations/Vela.pdf}
+\end{frame}
+
+% -----------------------------------------------------------------------------
+
+\begin{frame}[t]{}
+    \begin{columns}[T]
+        \begin{column}{1.5\colwidth}
+            \centering
+            \includegraphics[width=0.75\textwidth]{figures/finder/NGC3132_DSS2_B.pdf}
+        \end{column}
+        \begin{column}{1.5\colwidth}
+            \Large
+            \include{description/NGC3132_description.tex}
+        \end{column}
+    \end{columns}
+    \vspace{\fill}
+\end{frame}
+
+% -----------------------------------------------------------------------------
+
+\begin{frame}[t]{\LARGE Virgo}
+    \centering
+    \includegraphics[height=0.95\textheight]{figures/constellations/Virgo.pdf}
+\end{frame}
+
+% -----------------------------------------------------------------------------
+
+\begin{frame}[t]{}
+    \begin{columns}[T]
+        \begin{column}{1.5\colwidth}
+            \centering
+            \includegraphics[width=0.75\textwidth]{figures/finder/NGC4374_DSS2_B.pdf}
+        \end{column}
+        \begin{column}{1.5\colwidth}
+            \Large
+            \include{description/NGC4374_description.tex}
+        \end{column}
+    \end{columns}
+    \vspace{\fill}
+    \begin{columns}[T]
+        \begin{column}{1.5\colwidth}
+            \centering
+            \includegraphics[width=0.75\textwidth]{figures/finder/NGC4406_DSS2_B.pdf}
+        \end{column}
+        \begin{column}{1.5\colwidth}
+            \Large
+            \include{description/NGC4406_description.tex}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+% -----------------------------------------------------------------------------
+
+\begin{frame}[t]{}
+    \begin{columns}[T]
+        \begin{column}{1.5\colwidth}
+            \centering
+            \includegraphics[width=0.75\textwidth]{figures/finder/NGC4472_DSS2_B.pdf}
+        \end{column}
+        \begin{column}{1.5\colwidth}
+            \Large
+            \include{description/NGC4472_description.tex}
+        \end{column}
+    \end{columns}
+    \vspace{\fill}
+    \begin{columns}[T]
+        \begin{column}{1.5\colwidth}
+            \centering
+            \includegraphics[width=0.75\textwidth]{figures/finder/NGC4486_DSS2_B.pdf}
+        \end{column}
+        \begin{column}{1.5\colwidth}
+            \Large
+            \include{description/NGC4486_description.tex}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+% -----------------------------------------------------------------------------
+
+\begin{frame}[t]{}
+    \begin{columns}[T]
+        \begin{column}{1.5\colwidth}
+            \centering
+            \includegraphics[width=0.75\textwidth]{figures/finder/NGC4526_DSS2_B.pdf}
+        \end{column}
+        \begin{column}{1.5\colwidth}
+            \Large
+            \include{description/NGC4526_description.tex}
+        \end{column}
+    \end{columns}
+    \vspace{\fill}
+    \begin{columns}[T]
+        \begin{column}{1.5\colwidth}
+            \centering
+            \includegraphics[width=0.75\textwidth]{figures/finder/NGC4569_DSS2_B.pdf}
+        \end{column}
+        \begin{column}{1.5\colwidth}
+            \Large
+            \include{description/NGC4569_description.tex}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+% -----------------------------------------------------------------------------
+
+\begin{frame}[t]{}
+    \begin{columns}[T]
+        \begin{column}{1.5\colwidth}
+            \centering
+            \includegraphics[width=0.75\textwidth]{figures/finder/NGC4579_DSS2_B.pdf}
+        \end{column}
+        \begin{column}{1.5\colwidth}
+            \Large
+            \include{description/NGC4579_description.tex}
+        \end{column}
+    \end{columns}
+    \vspace{\fill}
+    \begin{columns}[T]
+        \begin{column}{1.5\colwidth}
+            \centering
+            \includegraphics[width=0.75\textwidth]{figures/finder/NGC4594_DSS2_B.pdf}
+        \end{column}
+        \begin{column}{1.5\colwidth}
+            \Large
+            \include{description/NGC4594_description.tex}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+% -----------------------------------------------------------------------------
+
+\begin{frame}[t]{}
+    \begin{columns}[T]
+        \begin{column}{1.5\colwidth}
+            \centering
+            \includegraphics[width=0.75\textwidth]{figures/finder/NGC4621_DSS2_B.pdf}
+        \end{column}
+        \begin{column}{1.5\colwidth}
+            \Large
+            \include{description/NGC4621_description.tex}
+        \end{column}
+    \end{columns}
+    \vspace{\fill}
+    \begin{columns}[T]
+        \begin{column}{1.5\colwidth}
+            \centering
+            \includegraphics[width=0.75\textwidth]{figures/finder/NGC4649_DSS2_B.pdf}
+        \end{column}
+        \begin{column}{1.5\colwidth}
+            \Large
+            \include{description/NGC4649_description.tex}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+% Summer Constellations
+% -----------------------------------------------------------------------------
+\begin{frame}[t]{}
+    \begin{columns}[T]
+        \begin{column}{1.0\colwidth}
+            \Large
+            \begin{block}{Summer Constellations}
+                \begin{itemize}
+                    \item{Aquila}
+                    \item{Cygnus}
+                    \item{Draco}
+                    \item{Hercules}
+                    \item{Lyra}
+                    \item{Ophiuchus}
+                    \item{Sagittarius}
+                    \item{Scorpius}
+                    \item{Scutum}
+                    \item{Serpens}
+                    \item{Vulpecula}
+                \end{itemize}
+            \end{block}
+        \end{column}
+        \begin{column}{2.0\colwidth}
+            \centering
+        \includegraphics[width=\textwidth]{figures/constellations/summer_triangle.pdf}      \end{column}
+    \end{columns}
+\end{frame}
+
+% -----------------------------------------------------------------------------
+
+\begin{frame}[t]{}
+    \Large{Aquila}
+    \begin{columns}[T]
+        \begin{column}{1.7\colwidth}
+            \centering
+            \includegraphics[width=\textwidth]{figures/altitude/Aql_observability.pdf}
+        \end{column}
+        \begin{column}{1.3\colwidth}
+            \Large
+            \include{catalog/Aql_ngc_objects.tex}
+        \end{column}
+    \end{columns}
+
+    \Large{Cygnus}
+    \begin{columns}[T]
+        \begin{column}{1.7\colwidth}
+            \centering
+            \includegraphics[width=\textwidth]{figures/altitude/Cyg_observability.pdf}
+        \end{column}
+        \begin{column}{1.3\colwidth}
+            \Large
+            \include{catalog/Cyg_ngc_objects.tex}
+        \end{column}
+    \end{columns}
+
+    \Large{Draco}
+    \begin{columns}[T]
+        \begin{column}{1.7\colwidth}
+            \centering
+            \includegraphics[width=\textwidth]{figures/altitude/Dra_observability.pdf}
+        \end{column}
+        \begin{column}{1.3\colwidth}
+            \Large
+            \include{catalog/Dra_ngc_objects.tex}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+% -----------------------------------------------------------------------------
+
+\begin{frame}[t]{}
+    \Large{Hercules}
+    \begin{columns}[T]
+        \begin{column}{1.7\colwidth}
+            \centering
+            \includegraphics[width=\textwidth]{figures/altitude/Her_observability.pdf}
+        \end{column}
+        \begin{column}{1.3\colwidth}
+            \Large
+            \include{catalog/Her_ngc_objects.tex}
+        \end{column}
+    \end{columns}
+
+    \Large{Lyra}
+    \begin{columns}[T]
+        \begin{column}{1.7\colwidth}
+            \centering
+            \includegraphics[width=\textwidth]{figures/altitude/Lyr_observability.pdf}
+        \end{column}
+        \begin{column}{1.3\colwidth}
+            \Large
+            \include{catalog/Lyr_ngc_objects.tex}
+        \end{column}
+    \end{columns}
+
+    \Large{Ophiuchus}
+    \begin{columns}[T]
+        \begin{column}{1.7\colwidth}
+            \centering
+            \includegraphics[width=\textwidth]{figures/altitude/Oph_observability.pdf}
+        \end{column}
+        \begin{column}{1.3\colwidth}
+            \Large
+            \include{catalog/Oph_ngc_objects.tex}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+% -----------------------------------------------------------------------------
+
+\begin{frame}[t]{}
+    \Large{Sagittarius}
+    \begin{columns}[T]
+        \begin{column}{1.7\colwidth}
+            \centering
+            \includegraphics[width=\textwidth]{figures/altitude/Sgr_observability.pdf}
+        \end{column}
+        \begin{column}{1.3\colwidth}
+            \Large
+            \include{catalog/Sgr_ngc_objects.tex}
+        \end{column}
+    \end{columns}
+
+    \Large{Scorpius}
+    \begin{columns}[T]
+        \begin{column}{1.7\colwidth}
+            \centering
+            \includegraphics[width=\textwidth]{figures/altitude/Sco_observability.pdf}
+        \end{column}
+        \begin{column}{1.3\colwidth}
+            \Large
+            \include{catalog/Sco_ngc_objects.tex}
+        \end{column}
+    \end{columns}
+
+    \Large{Scutum}
+    \begin{columns}[T]
+        \begin{column}{1.7\colwidth}
+            \centering
+            \includegraphics[width=\textwidth]{figures/altitude/Sct_observability.pdf}
+        \end{column}
+        \begin{column}{1.3\colwidth}
+            \Large
+            \include{catalog/Sct_ngc_objects.tex}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+% -----------------------------------------------------------------------------
+
+\begin{frame}[t]{}
+
+    \Large{Serpens}
+    \begin{columns}[T]
+        \begin{column}{1.7\colwidth}
+            \centering
+            \includegraphics[width=\textwidth]{figures/altitude/Ser_observability.pdf}
+        \end{column}
+        \begin{column}{1.3\colwidth}
+            \Large
+            \include{catalog/Ser_ngc_objects.tex}
+        \end{column}
+    \end{columns}
+
+    \Large{Vulpecula}
+    \begin{columns}[T]
+        \begin{column}{1.7\colwidth}
+            \centering
+            \includegraphics[width=\textwidth]{figures/altitude/Vul_observability.pdf}
+        \end{column}
+        \begin{column}{1.3\colwidth}
+            \Large
+            \include{catalog/Vul_ngc_objects.tex}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+% -----------------------------------------------------------------------------
+
+\begin{frame}[t]{\LARGE Cygnus}
+    \centering
+    \includegraphics[height=0.95\textheight]{figures/constellations/Cygnus.pdf}
+\end{frame}
+
+% -----------------------------------------------------------------------------
+
+\begin{frame}[t]{}
+    \begin{columns}[T]
+        \begin{column}{1.5\colwidth}
+            \centering
+            \includegraphics[width=0.75\textwidth]{figures/finder/IC1369_DSS2_B.pdf}
+        \end{column}
+        \begin{column}{1.5\colwidth}
+            \Large
+            \include{description/IC1369_description.tex}
+        \end{column}
+    \end{columns}
+    \vspace{\fill}
+    \begin{columns}[T]
+        \begin{column}{1.5\colwidth}
+            \centering
+            \includegraphics[width=0.75\textwidth]{figures/finder/NGC6819_DSS2_B.pdf}
+        \end{column}
+        \begin{column}{1.5\colwidth}
+            \Large
+            \include{description/NGC6819_description.tex}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+% -----------------------------------------------------------------------------
+
+\begin{frame}[t]{}
+    \begin{columns}[T]
+        \begin{column}{1.5\colwidth}
+            \centering
+            \includegraphics[width=0.75\textwidth]{figures/finder/NGC6826_DSS2_B.pdf}
+        \end{column}
+        \begin{column}{1.5\colwidth}
+            \Large
+            \include{description/NGC6826_description.tex}
+        \end{column}
+    \end{columns}
+    \vspace{\fill}
+    \begin{columns}[T]
+        \begin{column}{1.5\colwidth}
+            \centering
+            \includegraphics[width=0.75\textwidth]{figures/finder/NGC6960_DSS2_B.pdf}
+        \end{column}
+        \begin{column}{1.5\colwidth}
+            \Large
+            \include{description/NGC6960_description.tex}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+% -----------------------------------------------------------------------------
+
+\begin{frame}[t]{\LARGE Draco}
+    \centering
+    \includegraphics[height=0.95\textheight]{figures/constellations/Draco.pdf}
+\end{frame}
+
+% -----------------------------------------------------------------------------
+
+\begin{frame}[t]{}
+    \begin{columns}[T]
+        \begin{column}{1.5\colwidth}
+            \centering
+            \includegraphics[width=0.75\textwidth]{figures/finder/NGC6543_DSS2_B.pdf}
+        \end{column}
+        \begin{column}{1.5\colwidth}
+            \Large
+            \include{description/NGC6543_description.tex}
+        \end{column}
+    \end{columns}
+    \vspace{\fill}
+\end{frame}
+
+% -----------------------------------------------------------------------------
+
+\begin{frame}[t]{\LARGE Hercules}
+    \centering
+    \includegraphics[height=0.95\textheight]{figures/constellations/Hercules.pdf}
+\end{frame}
+
+% -----------------------------------------------------------------------------
+
+\begin{frame}[t]{}
+    \begin{columns}[T]
+        \begin{column}{1.5\colwidth}
+            \centering
+            \includegraphics[width=0.75\textwidth]{figures/finder/NGC6205_DSS2_B.pdf}
+        \end{column}
+        \begin{column}{1.5\colwidth}
+            \Large
+            \include{description/NGC6205_description.tex}
+        \end{column}
+    \end{columns}
+    \vspace{\fill}
+    \begin{columns}[T]
+        \begin{column}{1.5\colwidth}
+            \centering
+            \includegraphics[width=0.75\textwidth]{figures/finder/NGC6341_DSS2_B.pdf}
+        \end{column}
+        \begin{column}{1.5\colwidth}
+            \Large
+            \include{description/NGC6341_description.tex}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+% -----------------------------------------------------------------------------
+
+\begin{frame}[t]{\LARGE Lyra}
+    \centering
+    \includegraphics[height=0.95\textheight]{figures/constellations/Lyra.pdf}
+\end{frame}
+
+% -----------------------------------------------------------------------------
+
+\begin{frame}[t]{}
+    \begin{columns}[T]
+        \begin{column}{1.5\colwidth}
+            \centering
+            \includegraphics[width=0.75\textwidth]{figures/finder/NGC6720_DSS2_B.pdf}
+        \end{column}
+        \begin{column}{1.5\colwidth}
+            \Large
+            \include{description/NGC6720_description.tex}
+        \end{column}
+    \end{columns}
+    \vspace{\fill}
+\end{frame}
+
+% -----------------------------------------------------------------------------
+
+\begin{frame}[t]{\LARGE Ophiuchus}
+    \centering
+    \includegraphics[height=0.95\textheight]{figures/constellations/Ophiuchus.pdf}
+\end{frame}
+
+% -----------------------------------------------------------------------------
+
+\begin{frame}[t]{}
+    \begin{columns}[T]
+        \begin{column}{1.5\colwidth}
+            \centering
+            \includegraphics[width=0.75\textwidth]{figures/finder/NGC6171_DSS2_B.pdf}
+        \end{column}
+        \begin{column}{1.5\colwidth}
+            \Large
+            \include{description/NGC6171_description.tex}
+        \end{column}
+    \end{columns}
+    \vspace{\fill}
+    \begin{columns}[T]
+        \begin{column}{1.5\colwidth}
+            \centering
+            \includegraphics[width=0.75\textwidth]{figures/finder/NGC6218_DSS2_B.pdf}
+        \end{column}
+        \begin{column}{1.5\colwidth}
+            \Large
+            \include{description/NGC6218_description.tex}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+% -----------------------------------------------------------------------------
+
+\begin{frame}[t]{}
+    \begin{columns}[T]
+        \begin{column}{1.5\colwidth}
+            \centering
+            \includegraphics[width=0.75\textwidth]{figures/finder/NGC6254_DSS2_B.pdf}
+        \end{column}
+        \begin{column}{1.5\colwidth}
+            \Large
+            \include{description/NGC6254_description.tex}
+        \end{column}
+    \end{columns}
+    \vspace{\fill}
+    \begin{columns}[T]
+        \begin{column}{1.5\colwidth}
+            \centering
+            \includegraphics[width=0.75\textwidth]{figures/finder/NGC6266_DSS1_B.pdf}
+        \end{column}
+        \begin{column}{1.5\colwidth}
+            \Large
+            \include{description/NGC6266_description.tex}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+% -----------------------------------------------------------------------------
+
+\begin{frame}[t]{}
+    \begin{columns}[T]
+        \begin{column}{1.5\colwidth}
+            \centering
+            \includegraphics[width=0.75\textwidth]{figures/finder/NGC6273_DSS2_R.pdf}
+        \end{column}
+        \begin{column}{1.5\colwidth}
+            \Large
+            \include{description/NGC6273_description.tex}
+        \end{column}
+    \end{columns}
+    \vspace{\fill}
+    \begin{columns}[T]
+        \begin{column}{1.5\colwidth}
+            \centering
+            \includegraphics[width=0.75\textwidth]{figures/finder/NGC6293_DSS2_R.pdf}
+        \end{column}
+        \begin{column}{1.5\colwidth}
+            \Large
+            \include{description/NGC6293_description.tex}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+% -----------------------------------------------------------------------------
+
+\begin{frame}[t]{}
+    \begin{columns}[T]
+        \begin{column}{1.5\colwidth}
+            \centering
+            \includegraphics[width=0.75\textwidth]{figures/finder/NGC6333_DSS1_B.pdf}
+        \end{column}
+        \begin{column}{1.5\colwidth}
+            \Large
+            \include{description/NGC6333_description.tex}
+        \end{column}
+    \end{columns}
+    \vspace{\fill}
+    \begin{columns}[T]
+        \begin{column}{1.5\colwidth}
+            \centering
+            \includegraphics[width=0.75\textwidth]{figures/finder/NGC6402_DSS2_B.pdf}
+        \end{column}
+        \begin{column}{1.5\colwidth}
+            \Large
+            \include{description/NGC6402_description.tex}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+% -----------------------------------------------------------------------------
+
+\begin{frame}[t]{}
+    \begin{columns}[T]
+        \begin{column}{1.5\colwidth}
+            \centering
+            \includegraphics[width=0.75\textwidth]{figures/finder/NGC6572_DSS2_B.pdf}
+        \end{column}
+        \begin{column}{1.5\colwidth}
+            \Large
+            \include{description/NGC6572_description.tex}
+        \end{column}
+    \end{columns}
+    \vspace{\fill}
+    \begin{columns}[T]
+        \begin{column}{1.5\colwidth}
+            \centering
+            \includegraphics[width=0.75\textwidth]{figures/finder/NGC6633_DSS2_B.pdf}
+        \end{column}
+        \begin{column}{1.5\colwidth}
+            \Large
+            \include{description/NGC6633_description.tex}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+% -----------------------------------------------------------------------------
+
+\begin{frame}[t]{\LARGE Sagittarius}
+    \centering
+    \includegraphics[height=0.95\textheight]{figures/constellations/Sagittarius.pdf}
+\end{frame}
+
+% -----------------------------------------------------------------------------
+
+\begin{frame}[t]{}
+    \begin{columns}[T]
+        \begin{column}{1.5\colwidth}
+            \centering
+            \includegraphics[width=0.75\textwidth]{figures/finder/NGC6514_DSS1_B.pdf}
+        \end{column}
+        \begin{column}{1.5\colwidth}
+            \Large
+            \include{description/NGC6514_description.tex}
+        \end{column}
+    \end{columns}
+    \vspace{\fill}
+    \begin{columns}[T]
+        \begin{column}{1.5\colwidth}
+            \centering
+            \includegraphics[width=0.75\textwidth]{figures/finder/NGC6523_DSS1_B.pdf}
+        \end{column}
+        \begin{column}{1.5\colwidth}
+            \Large
+            \include{description/NGC6523_description.tex}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+% -----------------------------------------------------------------------------
+
+\begin{frame}[t]{}
+    \begin{columns}[T]
+        \begin{column}{1.5\colwidth}
+            \centering
+            \includegraphics[width=0.75\textwidth]{figures/finder/NGC6618_DSS1_B.pdf}
+        \end{column}
+        \begin{column}{1.5\colwidth}
+            \Large
+            \include{description/NGC6618_description.tex}
+        \end{column}
+    \end{columns}
+    \vspace{\fill}
+    \begin{columns}[T]
+        \begin{column}{1.5\colwidth}
+            \centering
+            \includegraphics[width=0.75\textwidth]{figures/finder/NGC6626_DSS1_B.pdf}
+        \end{column}
+        \begin{column}{1.5\colwidth}
+            \Large
+            \include{description/NGC6626_description.tex}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+% -----------------------------------------------------------------------------
+
+\begin{frame}[t]{}
+    \begin{columns}[T]
+        \begin{column}{1.5\colwidth}
+            \centering
+            \includegraphics[width=0.75\textwidth]{figures/finder/NGC6656_DSS1_B.pdf}
+        \end{column}
+        \begin{column}{1.5\colwidth}
+            \Large
+            \include{description/NGC6656_description.tex}
+        \end{column}
+    \end{columns}
+    \vspace{\fill}
+    \begin{columns}[T]
+        \begin{column}{1.5\colwidth}
+            \centering
+            \includegraphics[width=0.75\textwidth]{figures/finder/NGC6809_DSS2_B.pdf}
+        \end{column}
+        \begin{column}{1.5\colwidth}
+            \Large
+            \include{description/NGC6809_description.tex}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+% -----------------------------------------------------------------------------
+
+\begin{frame}[t]{}
+    \begin{columns}[T]
+        \begin{column}{1.5\colwidth}
+            \centering
+            \includegraphics[width=0.75\textwidth]{figures/finder/NGC6818_DSS2_B.pdf}
+        \end{column}
+        \begin{column}{1.5\colwidth}
+            \Large
+            \include{description/NGC6818_description.tex}
+        \end{column}
+    \end{columns}
+    \vspace{\fill}
+\end{frame}
+
+% -----------------------------------------------------------------------------
+
+\begin{frame}[t]{\LARGE Scorpius}
+    \centering
+    \includegraphics[height=0.95\textheight]{figures/constellations/Scorpius.pdf}
+\end{frame}
+
+% -----------------------------------------------------------------------------
+
+\begin{frame}[t]{}
+    \begin{columns}[T]
+        \begin{column}{1.5\colwidth}
+            \centering
+            \includegraphics[width=0.75\textwidth]{figures/finder/NGC6302_DSS2_R.pdf}
+        \end{column}
+        \begin{column}{1.5\colwidth}
+            \Large
+            \include{description/NGC6302_description.tex}
+        \end{column}
+    \end{columns}
+    \vspace{\fill}
+    \begin{columns}[T]
+        \begin{column}{1.5\colwidth}
+            \centering
+            \includegraphics[width=0.75\textwidth]{figures/finder/NGC6405_DSS1_B.pdf}
+        \end{column}
+        \begin{column}{1.5\colwidth}
+            \Large
+            \include{description/NGC6405_description.tex}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+% -----------------------------------------------------------------------------
+
+\begin{frame}[t]{}
+    \begin{columns}[T]
+        \begin{column}{1.5\colwidth}
+            \centering
+            \includegraphics[width=0.75\textwidth]{figures/finder/NGC6441_DSS.pdf}
+        \end{column}
+        \begin{column}{1.5\colwidth}
+            \Large
+            \include{description/NGC6441_description.tex}
+        \end{column}
+    \end{columns}
+    \vspace{\fill}
+    \begin{columns}[T]
+        \begin{column}{1.5\colwidth}
+            \centering
+            \includegraphics[width=0.75\textwidth]{figures/finder/NGC6475_DSS2_R.pdf}
+        \end{column}
+        \begin{column}{1.5\colwidth}
+            \Large
+            \include{description/NGC6475_description.tex}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+% -----------------------------------------------------------------------------
+
+\begin{frame}[t]{\LARGE Scutum}
+    \centering
+    \includegraphics[height=0.95\textheight]{figures/constellations/Scutum.pdf}
+\end{frame}
+
+% -----------------------------------------------------------------------------
+
+\begin{frame}[t]{}
+    \begin{columns}[T]
+        \begin{column}{1.5\colwidth}
+            \centering
+            \includegraphics[width=0.75\textwidth]{figures/finder/NGC6705_DSS2_R.pdf}
+        \end{column}
+        \begin{column}{1.5\colwidth}
+            \Large
+            \include{description/NGC6705_description.tex}
+        \end{column}
+    \end{columns}
+    \vspace{\fill}
+    \begin{columns}[T]
+        \begin{column}{1.5\colwidth}
+            \centering
+            \includegraphics[width=0.75\textwidth]{figures/finder/NGC6712_DSS1_B.pdf}
+        \end{column}
+        \begin{column}{1.5\colwidth}
+            \Large
+            \include{description/NGC6712_description.tex}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+% -----------------------------------------------------------------------------
+
+\begin{frame}[t]{\LARGE Serpens Caput}
+    \centering
+    \includegraphics[height=0.95\textheight]{figures/constellations/Serpens_Caput.pdf}
+\end{frame}
+
+% -----------------------------------------------------------------------------
+
+\begin{frame}[t]{}
+    \begin{columns}[T]
+        \begin{column}{1.5\colwidth}
+            \centering
+            \includegraphics[width=0.75\textwidth]{figures/finder/NGC5904_DSS2_B.pdf}
+        \end{column}
+        \begin{column}{1.5\colwidth}
+            \Large
+            \include{description/NGC5904_description.tex}
+        \end{column}
+    \end{columns}
+    \vspace{\fill}
+\end{frame}
+
+% -----------------------------------------------------------------------------
+
+\begin{frame}[t]{\LARGE Serpens Cauda}
+    \centering
+    \includegraphics[height=0.95\textheight]{figures/constellations/Serpens_Cauda.pdf}
+\end{frame}
+
+% -----------------------------------------------------------------------------
+
+\begin{frame}[t]{}
+    \begin{columns}[T]
+        \begin{column}{1.5\colwidth}
+            \centering
+            \includegraphics[width=0.75\textwidth]{figures/finder/NGC6604_DSS2_B.pdf}
+        \end{column}
+        \begin{column}{1.5\colwidth}
+            \Large
+            \include{description/NGC6604_description.tex}
+        \end{column}
+    \end{columns}
+    \vspace{\fill}
+    \begin{columns}[T]
+        \begin{column}{1.5\colwidth}
+            \centering
+            \includegraphics[width=0.75\textwidth]{figures/finder/NGC6611_DSS1_R.pdf}
+        \end{column}
+        \begin{column}{1.5\colwidth}
+            \Large
+            \include{description/NGC6611_description.tex}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+% -----------------------------------------------------------------------------
+
+\begin{frame}[t]{\LARGE Vulpecula}
+    \centering
+    \includegraphics[height=0.95\textheight]{figures/constellations/Vulpecula.pdf}
+\end{frame}
+
+% -----------------------------------------------------------------------------
+
+\begin{frame}[t]{}
+    \begin{columns}[T]
+        \begin{column}{1.5\colwidth}
+            \centering
+            \includegraphics[width=0.75\textwidth]{figures/finder/NGC6853_DSS2_B.pdf}
+        \end{column}
+        \begin{column}{1.5\colwidth}
+            \Large
+            \include{description/NGC6853_description.tex}
+        \end{column}
+    \end{columns}
+    \vspace{\fill}
+\end{frame}
+
+% Autumn Constellations
+% -----------------------------------------------------------------------------
+\begin{frame}[t]{}
+    \begin{columns}[T]
+        \begin{column}{1.0\colwidth}
+            \Large
+            \begin{block}{Autumn Constellations}
+                \begin{itemize}
+                    \item{Andromeda}
+                    \item{Aquarius}
+                    \item{Cassiopeia}
+                    \item{Cetus}
+                    \item{Lacerta}
+                    \item{Pegasus}
+                    \item{Perseus}
+                    \item{Sculptor}
+                    \item{Triangulum}
+                \end{itemize}
+            \end{block}
+        \end{column}
+        \begin{column}{2.0\colwidth}
+            \centering
+            \includegraphics[width=\textwidth]{figures/constellations/pegasus_square.pdf}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+% -----------------------------------------------------------------------------
+
+\begin{frame}[t]{}
+    \Large{Andromeda}
+    \begin{columns}[T]
+        \begin{column}{1.7\colwidth}
+            \centering
+            \includegraphics[width=\textwidth]{figures/altitude/And_observability.pdf}
+        \end{column}
+        \begin{column}{1.3\colwidth}
+            \Large
+            \include{catalog/And_ngc_objects.tex}
+        \end{column}
+    \end{columns}
+
+    \Large{Aquarius}
+    \begin{columns}[T]
+        \begin{column}{1.7\colwidth}
+            \centering
+            \includegraphics[width=\textwidth]{figures/altitude/Aqr_observability.pdf}
+        \end{column}
+        \begin{column}{1.3\colwidth}
+            \Large
+            \include{catalog/Aqr_ngc_objects.tex}
+        \end{column}
+    \end{columns}
+
+    \Large{Cassiopeia}
+    \begin{columns}[T]
+        \begin{column}{1.7\colwidth}
+            \centering
+            \includegraphics[width=\textwidth]{figures/altitude/Cas_observability.pdf}
+        \end{column}
+        \begin{column}{1.3\colwidth}
+            \Large
+            \include{catalog/Cas_ngc_objects.tex}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+% -----------------------------------------------------------------------------
+
+\begin{frame}[t]{}
+    \Large{Cetus}
+    \begin{columns}[T]
+        \begin{column}{1.7\colwidth}
+            \centering
+            \includegraphics[width=\textwidth]{figures/altitude/Cet_observability.pdf}
+        \end{column}
+        \begin{column}{1.3\colwidth}
+            \Large
+            \include{catalog/Cet_ngc_objects.tex}
+        \end{column}
+    \end{columns}
+
+    \Large{Lacerta}
+    \begin{columns}[T]
+        \begin{column}{1.7\colwidth}
+            \centering
+            \includegraphics[width=\textwidth]{figures/altitude/Lac_observability.pdf}
+        \end{column}
+        \begin{column}{1.3\colwidth}
+            \Large
+            \include{catalog/Lac_ngc_objects.tex}
+        \end{column}
+    \end{columns}
+
+    \Large{Pegasus}
+    \begin{columns}[T]
+        \begin{column}{1.7\colwidth}
+            \centering
+            \includegraphics[width=\textwidth]{figures/altitude/Peg_observability.pdf}
+        \end{column}
+        \begin{column}{1.3\colwidth}
+            \Large
+            \include{catalog/Peg_ngc_objects.tex}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+% -----------------------------------------------------------------------------
+
+\begin{frame}[t]{}
+    \Large{Perseus}
+    \begin{columns}[T]
+        \begin{column}{1.7\colwidth}
+            \centering
+            \includegraphics[width=\textwidth]{figures/altitude/Per_observability.pdf}
+        \end{column}
+        \begin{column}{1.3\colwidth}
+            \Large
+            \include{catalog/Per_ngc_objects.tex}
+        \end{column}
+    \end{columns}
+
+    \Large{Lacerta}
+    \begin{columns}[T]
+        \begin{column}{1.7\colwidth}
+            \centering
+            \includegraphics[width=\textwidth]{figures/altitude/Scl_observability.pdf}
+        \end{column}
+        \begin{column}{1.3\colwidth}
+            \Large
+            \include{catalog/Scl_ngc_objects.tex}
+        \end{column}
+    \end{columns}
+
+    \Large{Triangulum}
+    \begin{columns}[T]
+        \begin{column}{1.7\colwidth}
+            \centering
+            \includegraphics[width=\textwidth]{figures/altitude/Tri_observability.pdf}
+        \end{column}
+        \begin{column}{1.3\colwidth}
+            \Large
+            \include{catalog/Tri_ngc_objects.tex}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+% -----------------------------------------------------------------------------
+
+\begin{frame}[t]{\LARGE Andromeda}
+    \centering
+    \includegraphics[height=0.95\textheight]{figures/constellations/Andromeda.pdf}
+\end{frame}
+
+% -----------------------------------------------------------------------------
+
+\begin{frame}[t]{}
+    \begin{columns}[T]
+        \begin{column}{1.5\colwidth}
+            \centering
+            \includegraphics[width=0.75\textwidth]{figures/finder/NGC0205_DSS2_B.pdf}
+        \end{column}
+        \begin{column}{1.5\colwidth}
+            \Large
+            \include{description/NGC0205_description.tex}
+        \end{column}
+    \end{columns}
+    \vspace{\fill}
+    \begin{columns}[T]
+        \begin{column}{1.5\colwidth}
+            \centering
+            \includegraphics[width=0.75\textwidth]{figures/finder/NGC0221_DSS2_B.pdf}
+        \end{column}
+        \begin{column}{1.5\colwidth}
+            \Large
+            \include{description/NGC0221_description.tex}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+% -----------------------------------------------------------------------------
+
+\begin{frame}[t]{}
+    \begin{columns}[T]
+        \begin{column}{1.5\colwidth}
+            \centering
+            \includegraphics[width=0.75\textwidth]{figures/finder/NGC7662_DSS2_B.pdf}
+        \end{column}
+        \begin{column}{1.5\colwidth}
+            \Large
+            \include{description/NGC7662_description.tex}
+        \end{column}
+    \end{columns}
+    \vspace{\fill}
+\end{frame}
+
+% -----------------------------------------------------------------------------
+
+\begin{frame}[t]{\LARGE Aquarius}
+    \centering
+    \includegraphics[height=0.95\textheight]{figures/constellations/Aquarius.pdf}
+\end{frame}
+
+% -----------------------------------------------------------------------------
+
+\begin{frame}[t]{}
+    \begin{columns}[T]
+        \begin{column}{1.5\colwidth}
+            \centering
+            \includegraphics[width=0.75\textwidth]{figures/finder/NGC7009_DSS2_B.pdf}
+        \end{column}
+        \begin{column}{1.5\colwidth}
+            \Large
+            \include{description/NGC7009_description.tex}
+        \end{column}
+    \end{columns}
+    \vspace{\fill}
+    \begin{columns}[T]
+        \begin{column}{1.5\colwidth}
+            \centering
+            \includegraphics[width=0.75\textwidth]{figures/finder/NGC7293_DSS2_B.pdf}
+        \end{column}
+        \begin{column}{1.5\colwidth}
+            \Large
+            \include{description/NGC7293_description.tex}
+        \end{column}
+    \end{columns}
+\end{frame}
+% -----------------------------------------------------------------------------
+
+\begin{frame}[t]{\LARGE Cassiopeia}
+    \centering
+    \includegraphics[height=0.95\textheight]{figures/constellations/Cassiopeia.pdf}
+\end{frame}
+
+% -----------------------------------------------------------------------------
+
+\begin{frame}[t]{}
+    \begin{columns}[T]
+        \begin{column}{1.5\colwidth}
+            \centering
+            \includegraphics[width=0.75\textwidth]{figures/finder/NGC0457_DSS2_B.pdf}
+        \end{column}
+        \begin{column}{1.5\colwidth}
+            \Large
+            \include{description/NGC0457_description.tex}
+        \end{column}
+    \end{columns}
+    \vspace{\fill}
+    \begin{columns}[T]
+        \begin{column}{1.5\colwidth}
+            \centering
+            \includegraphics[width=0.75\textwidth]{figures/finder/NGC7635_DSS2_B.pdf}
+        \end{column}
+        \begin{column}{1.5\colwidth}
+            \Large
+            \include{description/NGC7635_description.tex}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+% -----------------------------------------------------------------------------
+
+\begin{frame}[t]{}
+    \begin{columns}[T]
+        \begin{column}{1.5\colwidth}
+            \centering
+            \includegraphics[width=0.75\textwidth]{figures/finder/NGC7654_DSS2_B.pdf}
+        \end{column}
+        \begin{column}{1.5\colwidth}
+            \Large
+            \include{description/NGC7654_description.tex}
+        \end{column}
+    \end{columns}
+    \vspace{\fill}
+    \begin{columns}[T]
+        \begin{column}{1.5\colwidth}
+            \centering
+            \includegraphics[width=0.75\textwidth]{figures/finder/NGC7789_DSS2_B.pdf}
+        \end{column}
+        \begin{column}{1.5\colwidth}
+            \Large
+            \include{description/NGC7789_description.tex}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+% -----------------------------------------------------------------------------
+
+\begin{frame}[t]{\LARGE Cetus}
+    \centering
+    \includegraphics[height=0.95\textheight]{figures/constellations/Cetus.pdf}
+\end{frame}
+
+% -----------------------------------------------------------------------------
+
+\begin{frame}[t]{}
+    \begin{columns}[T]
+        \begin{column}{1.5\colwidth}
+            \centering
+            \includegraphics[width=0.75\textwidth]{figures/finder/NGC1068_DSS2_B.pdf}
+        \end{column}
+        \begin{column}{1.5\colwidth}
+            \Large
+            \include{description/NGC1068_description.tex}
+        \end{column}
+    \end{columns}
+    \vspace{\fill}
+\end{frame}
+
+% -----------------------------------------------------------------------------
+
+\begin{frame}[t]{\LARGE Lacerta}
+    \centering
+    \includegraphics[height=0.95\textheight]{figures/constellations/Lacerta.pdf}
+\end{frame}
+
+% -----------------------------------------------------------------------------
+
+\begin{frame}[t]{}
+    \begin{columns}[T]
+        \begin{column}{1.5\colwidth}
+            \centering
+            \includegraphics[width=0.75\textwidth]{figures/finder/NGC7243_DSS2_B.pdf}
+        \end{column}
+        \begin{column}{1.5\colwidth}
+            \Large
+            \include{description/NGC7243_description.tex}
+        \end{column}
+    \end{columns}
+    \vspace{\fill}
+\end{frame}
+
+% -----------------------------------------------------------------------------
+
+\begin{frame}[t]{\LARGE Pegasus}
+    \centering
+    \includegraphics[height=0.95\textheight]{figures/constellations/Pegasus.pdf}
+\end{frame}
+
+% -----------------------------------------------------------------------------
+
+\begin{frame}[t]{}
+    \begin{columns}[T]
+        \begin{column}{1.5\colwidth}
+            \centering
+            \includegraphics[width=0.75\textwidth]{figures/finder/NGC7078_DSS2_B.pdf}
+        \end{column}
+        \begin{column}{1.5\colwidth}
+            \Large
+            \include{description/NGC7078_description.tex}
+        \end{column}
+    \end{columns}
+    \vspace{\fill}
+    \begin{columns}[T]
+        \begin{column}{1.5\colwidth}
+            \centering
+            \includegraphics[width=0.75\textwidth]{figures/finder/NGC7331_DSS2_B.pdf}
+        \end{column}
+        \begin{column}{1.5\colwidth}
+            \Large
+            \include{description/NGC7331_description.tex}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+% -----------------------------------------------------------------------------
+
+\begin{frame}[t]{\LARGE Perseus}
+    \centering
+    \includegraphics[height=0.95\textheight]{figures/constellations/Perseus.pdf}
+\end{frame}
+
+% -----------------------------------------------------------------------------
+
+\begin{frame}[t]{}
+    \begin{columns}[T]
+        \begin{column}{1.5\colwidth}
+            \centering
+            \includegraphics[width=0.75\textwidth]{figures/finder/NGC0869_DSS2_B.pdf}
+        \end{column}
+        \begin{column}{1.5\colwidth}
+            \Large
+            \include{description/NGC0869_description.tex}
+        \end{column}
+    \end{columns}
+    \vspace{\fill}
+    \begin{columns}[T]
+        \begin{column}{1.5\colwidth}
+            \centering
+            \includegraphics[width=0.75\textwidth]{figures/finder/NGC0884_DSS2_B.pdf}
+        \end{column}
+        \begin{column}{1.5\colwidth}
+            \Large
+            \include{description/NGC0884_description.tex}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+% -----------------------------------------------------------------------------
+
+\begin{frame}[t]{}
+    \begin{columns}[T]
+        \begin{column}{1.5\colwidth}
+            \centering
+            \includegraphics[width=0.75\textwidth]{figures/finder/NGC1023_DSS2_B.pdf}
+        \end{column}
+        \begin{column}{1.5\colwidth}
+            \Large
+            \include{description/NGC1023_description.tex}
+        \end{column}
+    \end{columns}
+    \vspace{\fill}
+    \begin{columns}[T]
+        \begin{column}{1.5\colwidth}
+            \centering
+            \includegraphics[width=0.75\textwidth]{figures/finder/NGC1039_DSS2_B.pdf}
+        \end{column}
+        \begin{column}{1.5\colwidth}
+            \Large
+            \include{description/NGC1039_description.tex}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+% -----------------------------------------------------------------------------
+
+\begin{frame}[t]{\LARGE Sculptor}
+    \centering
+    \includegraphics[height=0.95\textheight]{figures/constellations/Sculptor.pdf}
+\end{frame}
+
+% -----------------------------------------------------------------------------
+
+\begin{frame}[t]{}
+    \begin{columns}[T]
+        \begin{column}{1.5\colwidth}
+            \centering
+            \includegraphics[width=0.75\textwidth]{figures/finder/NGC0253_DSS2_B.pdf}
+        \end{column}
+        \begin{column}{1.5\colwidth}
+            \Large
+            \include{description/NGC0253_description.tex}
+        \end{column}
+    \end{columns}
+    \vspace{\fill}
+    \begin{columns}[T]
+        \begin{column}{1.5\colwidth}
+            \centering
+            \includegraphics[width=0.75\textwidth]{figures/finder/NGC0288_DSS2_B.pdf}
+        \end{column}
+        \begin{column}{1.5\colwidth}
+            \Large
+            \include{description/NGC0288_description.tex}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+% -----------------------------------------------------------------------------
+
+\begin{frame}[t]{\LARGE Triangulum}
+    \centering
+    \includegraphics[height=0.95\textheight]{figures/constellations/Triangulum.pdf}
+\end{frame}
+
+% -----------------------------------------------------------------------------
+
+\begin{frame}[t]{}
+    \begin{columns}[T]
+        \begin{column}{1.5\colwidth}
+            \centering
+            \includegraphics[width=0.75\textwidth]{figures/finder/NGC0598_DSS2_B.pdf}
+        \end{column}
+        \begin{column}{1.5\colwidth}
+     \Large
+     \include{description/NGC0598_description.tex}
+     \end{column}
+  \end{columns}
+  \vspace{\fill}
+\end{frame}
+
+\end{document}
