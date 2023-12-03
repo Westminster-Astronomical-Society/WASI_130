@@ -63,6 +63,8 @@ _minted-*/
 *.dvi
 *.pdf
 *synctex.gz
+*.fdb_latexmk
+*.fls
 figures/
 
 # VSCode config
