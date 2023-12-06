@@ -11,6 +11,7 @@
 \usepackage{booktabs}
 \usepackage{tabularx}
 \usepackage{array}
+\usepackage{enumerate}
 \usepackage{tikz}
 \usepackage{pgfplots}
   \pgfplotsset{compat=1.14}
@@ -863,6 +864,21 @@
   \begin{columns}[T]
     \begin{column}{1.5\colwidth}
       \centering
+      \includegraphics[width=0.75\textwidth]{figures/finder/NGC5272_DSS2_B.pdf}
+    \end{column}
+    \begin{column}{1.5\colwidth}
+      \Large
+      \include{description/NGC5272_description.tex}
+    \end{column}
+  \end{columns}
+  \end{frame}
+
+% -----------------------------------------------------------------------------
+
+\begin{frame}[t]{}
+\begin{columns}[T]
+    \begin{column}{1.5\colwidth}
+      \centering
       \includegraphics[width=0.75\textwidth]{figures/finder/NGC5194_DSS2_B.pdf}
     \end{column}
     \begin{column}{1.5\colwidth}
@@ -870,30 +886,15 @@
       \include{description/NGC5194_description.tex}
     \end{column}
   \end{columns}
-\end{frame}
-
-% -----------------------------------------------------------------------------
-
-\begin{frame}[t]{}
+  % \vspace{\fill}
   \begin{columns}[T]
     \begin{column}{1.5\colwidth}
       \centering
-      \includegraphics[width=0.75\textwidth]{figures/finder/NGC5195_DSS2_B.pdf}
+      % \includegraphics[width=0.75\textwidth]{figures/finder/NGC5195_DSS2_B.pdf}
     \end{column}
     \begin{column}{1.5\colwidth}
       \Large
       \include{description/NGC5195_description.tex}
-    \end{column}
-  \end{columns}
-  \vspace{\fill}
-  \begin{columns}[T]
-    \begin{column}{1.5\colwidth}
-      \centering
-      \includegraphics[width=0.75\textwidth]{figures/finder/NGC5272_DSS2_B.pdf}
-    \end{column}
-    \begin{column}{1.5\colwidth}
-      \Large
-      \include{description/NGC5272_description.tex}
     \end{column}
   \end{columns}
 \end{frame}
@@ -2610,6 +2611,21 @@
     \begin{column}{1.5\colwidth}
       \Large
       \include{description/NGC0598_description.tex}
+    \end{column}
+  \end{columns}
+  \vspace{\fill}
+\end{frame}
+
+% -- Notes --------------------------------------------------------------------
+\section{Notes}
+
+\begin{frame}[t]{}
+  \begin{columns}[T]
+    \begin{column}{1.5\colwidth}
+      \include{description/dreyer.tex}
+    \end{column}
+    \begin{column}{1.5\colwidth}
+      \include{description/trumpler.tex}
     \end{column}
   \end{columns}
   \vspace{\fill}
